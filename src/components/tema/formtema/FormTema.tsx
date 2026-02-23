@@ -3,13 +3,13 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { ClipLoader } from 'react-spinners';
 import { AuthContext } from '../../../context/AuthContext';
 import type Tema from '../../../models/Tema';
-import { atualizar,buscar, cadastrar } from '../../../services/Service';
+import { buscar,atualizar,cadastrar } from '../../../services/Service';
 
 
 
 function FormTema() {
 
-    const navigate = useNavigate();
+const navigate = useNavigate();
 
 const [tema, setTema] = useState<Tema>({} as Tema)
 
@@ -101,7 +101,7 @@ async function gerarNovoTema(e: FormEvent<HTMLFormElement>) {
         {id === undefined ? 'Cadastrar Tema': 'Editar Tema'}
       </h1>
 
-      <form className="w-1/2 flex flex-col gap-4" onClick={gerarNovoTema} >
+      <form className="w-1/2 flex flex-col gap-4" onSubmit={gerarNovoTema} >
         <div className="flex flex-col gap-2">
           <label htmlFor="descricao">Descrição do Tema</label>
           <input
